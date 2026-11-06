@@ -128,6 +128,7 @@ let lockedScrollY = null;
 function lockPageScroll() {
   if (lockedScrollY !== null) return;
   lockedScrollY = window.scrollY;
+  document.documentElement.classList.add('modal-open');
   const scrollbar = window.innerWidth - document.documentElement.clientWidth; // чтобы страница не "прыгала" на ПК, когда исчезает полоса прокрутки
   Object.assign(document.body.style, {
     position: 'fixed', top: `-${lockedScrollY}px`, left: '0', right: '0',
@@ -139,6 +140,7 @@ function unlockPageScroll() {
   if (lockedScrollY === null) return;
   const y = lockedScrollY;
   lockedScrollY = null;
+  document.documentElement.classList.remove('modal-open');
   Object.assign(document.body.style, { position: '', top: '', left: '', right: '', width: '', paddingRight: '' });
   document.documentElement.style.scrollBehavior = 'auto'; // иначе html{scroll-behavior:smooth} будет "доезжать" до места
   window.scrollTo(0, y);
@@ -151,6 +153,26 @@ function unlockPageScroll() {
   modal.addEventListener('close', unlockPageScroll);
   // Тап по затемнённому фону вокруг окна тоже закрывает его
   modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
+
+  // Третья линия защиты (Safari на iPhone, Samsung Internet, Firefox):
+  // жесты и колесо вне списка блюд глушим вручную, а у самого списка не даём
+  // прокрутке "перетечь" на страницу, когда он докручен до верха или до низа.
+  let touchY = 0;
+  const atEdge = (dy) => {
+    const max = modal.scrollHeight - modal.clientHeight;
+    return max <= 0 || (dy < 0 && modal.scrollTop <= 0) || (dy > 0 && modal.scrollTop >= max - 1);
+  };
+  document.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (lockedScrollY === null) return;
+    const dy = touchY - e.touches[0].clientY; // > 0 — палец идёт вверх, список листается вниз
+    touchY = e.touches[0].clientY;
+    if (!modal.contains(e.target) || e.target === modal || atEdge(dy)) e.preventDefault();
+  }, { passive: false });
+  document.addEventListener('wheel', e => {
+    if (lockedScrollY === null) return;
+    if (!modal.contains(e.target) || e.target === modal || atEdge(e.deltaY)) e.preventDefault();
+  }, { passive: false });
 }
 
 // === Мобильное меню ===

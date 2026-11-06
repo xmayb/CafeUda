@@ -149,6 +149,12 @@
       overscroll-behavior: contain;
     }
 
+    html.modal-open,
+    html.modal-open body {
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+
     dialog[open] {
       opacity: 1;
       transform: scale(1);
@@ -356,7 +362,7 @@
 
 
 
-  <script src="main.js"></script>
+  <script src="main.js?v=3"></script>
 
 </body>
 
