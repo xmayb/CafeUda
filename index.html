@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herbata Iwa — spokojne miejsce na herbatę</title>
+
+  <!-- Google Fonts: три роли — display / eyebrow / body. Все три поддерживают кириллицу, проверь это сам при выборе других шрифтов -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500&family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind через CDN (play-режим) — без сборки, идеально для скелета и обучения -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Здесь мы РАСШИРЯЕМ дефолтную палитру Tailwind своими токенами.
+    // Это и есть способ "правильно пользоваться" Tailwind: не выдумывать
+    // произвольные hex-цвета в классах (bg-[#A9672B]) по всему коду,
+    // а один раз завести именованные цвета и использовать bg-amber-tea и т.д.
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#EDE6D6',
+            ink: '#262019',
+            leaf: '#47543F',
+            amber: '#A9672B',
+            celadon: '#7C8B7A',
+            card: '#F7F3E8',
+            'amber-ink': '#8A5220',
+            'celadon-ink': '#5E6D5C',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            eyebrow: ['"Unbounded"', 'sans-serif'],
+            body: ['"Manrope"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* === Механика scroll-reveal ===
+     Идея: у элемента по умолчанию opacity:0 и небольшой сдвиг вниз.
+     JS (внизу страницы) через IntersectionObserver добавляет класс .in-view,
+     когда элемент появляется во вьюпорте — CSS transition делает плавное появление.
+     Это дешевле по производительности, чем слушать scroll и считать позиции вручную. */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Задержка по порядку — простой способ сделать "каскадное" появление карточек */
+    .reveal:nth-child(2) {
+      transition-delay: 0.08s;
+    }
+
+    .reveal:nth-child(3) {
+      transition-delay: 0.16s;
+    }
+
+    .reveal:nth-child(4) {
+      transition-delay: 0.24s;
+    }
+
+    /* Уважение к reduced-motion — это не опционально, часть стандарта доступности */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Пар не исчезает совсем: без движения, только мягко "дышит" прозрачностью.
+         Причина: Windows с выключенными "Эффектами анимации" включает reduced-motion,
+         и раньше на ПК пар просто стоял на месте. */
+      .steam path {
+        animation-name: steam-breathe !important;
+        animation-duration: 4s !important;
+      }
+    }
+
+    @keyframes steam-breathe {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Декоративный "пар" над чашкой в hero — зацикленная CSS-анимация, без JS */
+    .steam path {
+      animation: steam-rise 3.5s ease-in-out infinite;
+      transform-box: fill-box; /* иначе transform-origin считается от всего SVG, а не от самой струйки */
+      transform-origin: bottom center;
+    }
+
+    .steam path:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+    .steam path:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+
+    @keyframes steam-rise {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scaleY(1);
+      }
+
+      30% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-28px) scaleY(1.15);
+      }
+    }
+
+    /* Полоса "заваривания" вверху страницы — сигнатурный элемент, JS обновляет ширину */
+    #steep-bar {
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    dialog {
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.25s ease, transform 0.25s ease, overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
+    }
+
+    dialog[open] {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @starting-style {
+      dialog[open] {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+    }
+
+    dialog::backdrop {
+      opacity: 0;
+      transition: opacity 0.25s ease, overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
+    }
+
+    dialog[open]::backdrop {
+      opacity: 1;
+    }
+
+
+    @starting-style {
+      dialog[open]::backdrop {
+        opacity: 0;
+      }
+
+    }
+  </style>
+</head>
+
+<body class="bg-paper text-ink font-body">
+
+  <!-- СИГНАТУРНЫЙ ЭЛЕМЕНТ: индикатор заваривания вместо банального progress bar -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-celadon/20 z-50">
+    <div id="steep-bar" class="h-full bg-gradient-to-r from-leaf to-amber"></div>
+  </div>
+
+  <!-- NAV: sticky, меняет фон при скролле через JS-класс, не через :hover трюки -->
+  <header id="site-nav" class="fixed top-1 left-0 w-full z-40 transition-colors duration-300">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
+      <a href="#top" class="font-eyebrow text-sm tracking-widest text-leaf">Same Fusy</a>
+
+      <div class="flex items-center gap-4">
+        <ul class="hidden md:flex gap-8 font-body text-sm">
+          <li><a data-i18n="nav.about" href="#about" class="hover:text-amber transition-colors">O nas</a></li>
+          <li><a data-i18n="nav.menu" href="#menu" class="hover:text-amber transition-colors">Menu</a></li>
+          <li><a data-i18n="nav.location" href="#place" class="hover:text-amber transition-colors">Lokalizacja</a></li>
+        </ul>
+
+        <button id="lang-toggle" type="button" onclick="nextLanguage()" aria-label="Zmień język strony"
+          class="bg-leaf text-paper text-xs font-eyebrow tracking-widest px-3 py-1.5 rounded-full hover:bg-ink transition-colors">PL</button>
+
+        <button type="button" onclick="toggleMobileMenu()" aria-label="Otwórz menu" class="md:hidden text-ink p-2">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-paper border-t border-ink/10 px-6 py-4">
+      <ul class="flex flex-col gap-4 font-body text-sm">
+        <li><a data-i18n="nav.about" href="#about" onclick="closeMobileMenu()"
+            class="hover:text-amber transition-colors">O nas</a></li>
+        <li><a data-i18n="nav.menu" href="#menu" onclick="closeMobileMenu()"
+            class="hover:text-amber transition-colors">Menu</a></li>
+        <li><a data-i18n="nav.location" href="#place" onclick="closeMobileMenu()"
+            class="hover:text-amber transition-colors">Lokalizacja</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="top" class="relative min-h-screen flex items-center overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center pt-24">
+
+        <div>
+          <p data-i18n="nav.quiet" class="font-eyebrow text-xs tracking-[0.2em] text-amber-ink mb-4">Ciche miejsce w
+            mieście
+          </p>
+          <h1 data-i18n="hero.title" class="font-display text-5xl md:text-6xl leading-tight text-ink mb-6">Czas
+            zwolnić<span class="text-amber italic"> krok</span><br>przy filiżance herbaty</h1>
+          <p data-i18n="nav.informationAboutTea" class="text-lg text-ink/70 mb-8 max-w-md">
+            Ivova Chayna — miejsce, gdzie herbatę parzy się, a nie nalewa.
+            Ponad 40 rodzajów herbaty liściastej, cisza i brak pośpiechu.
+          </p>
+
+
+
+
+
+
+          <div class="flex gap-4">
+            <a data-i18n="nav.menu" href="#menu"
+              class="bg-leaf text-paper px-6 py-3 rounded-full font-body font-medium hover:bg-ink transition-colors">
+              Zobacz menu
+            </a>
+            <a data-i18n="nav.about" href="#about"
+              class="border border-ink/20 px-6 py-3 rounded-full font-body hover:border-ink transition-colors">
+              Jak nas znaleźć
+            </a>
+          </div>
+        </div>
+
+        <!-- Декоративная чашка с паром — чисто SVG, без картинок -->
+        <div class="relative flex justify-center">
+          <svg viewBox="0 0 200 220" class="w-64 md:w-80">
+            <g class="steam" stroke="#7C8B7A" stroke-width="4" fill="none" stroke-linecap="round">
+              <path d="M70 90 C 60 70, 80 60, 70 40" />
+              <path d="M100 90 C 90 70, 110 60, 100 40" />
+              <path d="M130 90 C 120 70, 140 60, 130 40" />
+            </g>
+            <path d="M40 100 h120 v20 c0 35 -27 55 -60 55 s-60 -20 -60 -55 z" fill="#F7F3E8" stroke="#262019"
+              stroke-width="3" />
+            <path d="M160 110 c30 0 25 30 -9 40" fill="none" stroke="#262019" stroke-width="3" />
+            <!--ручку для чашки я исправил на -9 а было 0-->
+            <ellipse cx="100" cy="100" rx="60" ry="7" fill="#A9672B" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-28 bg-card">
+      <div class="max-w-4xl mx-auto px-6 text-center reveal">
+        <p data-i18n="section.history" class="font-eyebrow text-xs tracking-[0.2em] text-celadon mb-4">NASZA HISTORIA
+        </p>
+        <h2 data-i18n="section.tea" class="font-display text-4xl mb-6">Herbata to nie napój, to pauza</h2>
+        <p data-i18n="section.teaInformation" class="text-ink/70 text-lg leading-relaxed">
+          Otworzyliśmy się jako miejsce bez pośpiechu: bez kolejek na wynos i bez jednorazowych kubków. Każdą herbatę
+          parzymy indywidualnie, dopasowując proces do konkretnej odmiany — zielona, czarna czy ziołowa wymagają innego
+          czasu, temperatury wody i naczyń. To nie fanaberia, to szacunek do liścia.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- MENU -->
+    <section id="menu" class="py-28">
+      <div class="max-w-6xl mx-auto px-6">
+        <p data-i18n="section.menu"
+          class="font-eyebrow text-xs tracking-[0.2em] text-amber-ink mb-4 text-center reveal">
+          MENU
+        </p>
+        <h2 data-i18n="section.brew" class="font-display text-4xl text-center mb-16 reveal">Co parzymy dzisiaj?</h2>
+
+        <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        <p class="text-center text-sm text-ink/40 mt-10">
+          * Menu przykładowe. Zdjęcia i pozycje zostaną zastąpione prawdziwymi.
+        </p>
+      </div>
+    </section>
+
+    <dialog id="category-modal"
+      class="backdrop:bg-ink/60 p-0 rounded-2xl shadow-2xl max-w-lg w-[90vw] border border-ink/10 bg-card max-h-[80vh]">
+      <div class="sticky top-0 bg-card flex justify-end p-4 border-b border-ink/10 z-10">
+        <button onclick="document.getElementById('category-modal').close()"
+          class="bg-paper/80 backdrop-blur-md text-ink hover:text-amber p-2 rounded-full shadow-md transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="category-modal-body" class="p-6 overflow-y-auto"></div>
+    </dialog>
+
+    <!-- PLACE / MAP -->
+    <section id="place" class="py-28 bg-card">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p data-i18n="place.eyebrow" class="font-eyebrow text-xs tracking-[0.2em] text-celadon mb-4">Gdzie jesteśmy
+          </p>
+          <h2 data-i18n="place.title" class="font-display text-4xl mb-6">Wpadnijcie na herbatę</h2>
+          <p class="text-ink/70 mb-2">ul. Przykładowa 12, Warszawa</p>
+          <p data-i18n="place.hours" class="text-ink/70 mb-2">Pn –Nd : 10:00–23:00</p>
+          <a href="tel:+48226359014" class="text-ink/70">+48 226 359 014</a>
+        </div>
+
+        <!-- Google Maps embed — бесплатный iframe, ключ API не нужен.
+           Замени src на свой: Google Maps → Поделиться → Встроить карту → скопировать iframe src -->
+        <div class="reveal rounded-2xl overflow-hidden shadow-lg h-80">
+          <!--Place where exactly is this cafe-->
+          <iframe title="Mapa dojazdu do Same Fusy Tea Room"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4885.24183661468!2d21.007266601675244!3d52.25026882615132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecce8b38e8545%3A0xc084215f50833b05!2sSame%20Fusy.%20Tea%20Room%20and%20Cafe!5e0!3m2!1sru!2spl!4v1783721086344!5m2!1sru!2spl"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="py-16 bg-ink text-paper">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <span class="font-eyebrow text-sm tracking-widest">Same Fusy</span>
+      <p class="text-paper/50 text-sm">© 2026 Same Fusy.</p>
+    </div>
+  </footer>
+
+
+
+
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

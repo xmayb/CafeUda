@@ -1,0 +1,1102 @@
+{
+  "categories": [
+    {
+      "id": "tea",
+      "image": "img/ceremony-tea.jpg",
+      "name": {
+        "pl": "Herbata",
+        "en": "Tea",
+        "ru": "Чай"
+      },
+      "subcategories": [
+        {
+          "id": "tea-white",
+          "name": {
+            "pl": "Biała",
+            "en": "White",
+            "ru": "Белый"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Bai Hao Yin Zhen",
+                "en": "Silver Needle",
+                "ru": "Бай Хао Инь Чжэнь"
+              },
+              "desc": {
+                "pl": "Same pąki, miodowo-kwiatowa słodycz",
+                "en": "Buds only, honeyed and floral",
+                "ru": "Только почки, медово-цветочная сладость"
+              },
+              "price": 32
+            },
+            {
+              "name": {
+                "pl": "Bai Mu Dan",
+                "en": "White Peony",
+                "ru": "Бай Му Дань"
+              },
+              "desc": {
+                "pl": "Pąki z liśćmi, nuty suszonych owoców",
+                "en": "Buds and leaves, dried fruit notes",
+                "ru": "Почки с листьями, ноты сухофруктов"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Shou Mei",
+                "en": "Shou Mei",
+                "ru": "Шоу Мэй"
+              },
+              "desc": {
+                "pl": "Dojrzały liść, ciepły i lekko ziołowy",
+                "en": "Mature leaf, warm and lightly herbal",
+                "ru": "Зрелый лист, тёплый, слегка травяной"
+              },
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "tea-yellow",
+          "name": {
+            "pl": "Żółta",
+            "en": "Yellow",
+            "ru": "Жёлтый"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Jun Shan Yin Zhen",
+                "en": "Jun Shan Silver Needle",
+                "ru": "Цзюнь Шань Инь Чжэнь"
+              },
+              "desc": {
+                "pl": "Rzadka herbata z wyspy na jeziorze Dongting",
+                "en": "A rare tea from an island on Dongting Lake",
+                "ru": "Редкий чай с острова на озере Дунтин"
+              },
+              "price": 38
+            },
+            {
+              "name": {
+                "pl": "Huo Shan Huang Ya",
+                "en": "Huo Shan Yellow Sprout",
+                "ru": "Хо Шань Хуан Я"
+              },
+              "desc": {
+                "pl": "Delikatna, kukurydziano-orzechowa",
+                "en": "Gentle, with sweet corn and nut notes",
+                "ru": "Мягкий, с нотами кукурузы и орехов"
+              },
+              "price": 28
+            }
+          ]
+        },
+        {
+          "id": "tea-oolong",
+          "name": {
+            "pl": "Oolong",
+            "en": "Oolong",
+            "ru": "Улун"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Tie Guan Yin",
+                "en": "Tie Guan Yin",
+                "ru": "Те Гуань Инь"
+              },
+              "desc": {
+                "pl": "Lekko fermentowany, orchidea i bez",
+                "en": "Lightly oxidised, orchid and lilac",
+                "ru": "Слабоферментированный, орхидея и сирень"
+              },
+              "price": 26
+            },
+            {
+              "name": {
+                "pl": "Da Hong Pao",
+                "en": "Da Hong Pao",
+                "ru": "Да Хун Пао"
+              },
+              "desc": {
+                "pl": "Skały Wuyi: palony, mineralny, z nutą kakao",
+                "en": "Wuyi rock tea: roasted, mineral, a hint of cocoa",
+                "ru": "Утёсный чай Уи: обжаренный, минеральный, с нотой какао"
+              },
+              "price": 32
+            },
+            {
+              "name": {
+                "pl": "Milk Oolong",
+                "en": "Milk Oolong",
+                "ru": "Молочный улун"
+              },
+              "desc": {
+                "pl": "Kremowy, maślany posmak bez dodatku mleka",
+                "en": "Creamy and buttery, no milk added",
+                "ru": "Сливочный вкус без добавления молока"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Dong Ding",
+                "en": "Dong Ding",
+                "ru": "Дун Дин"
+              },
+              "desc": {
+                "pl": "Tajwański, lekko prażony, nuty orzecha i miodu",
+                "en": "Taiwanese, light roast, nut and honey notes",
+                "ru": "Тайваньский, лёгкая обжарка, орех и мёд"
+              },
+              "price": 28
+            }
+          ]
+        },
+        {
+          "id": "tea-green",
+          "name": {
+            "pl": "Zielona",
+            "en": "Green",
+            "ru": "Зелёный"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Longjing",
+                "en": "Longjing",
+                "ru": "Лунцзин"
+              },
+              "desc": {
+                "pl": "Płaskie liście, smak prażonego kasztana",
+                "en": "Flat leaves, roasted chestnut flavour",
+                "ru": "Плоский лист, вкус жареного каштана"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Bi Luo Chun",
+                "en": "Bi Luo Chun",
+                "ru": "Би Ло Чунь"
+              },
+              "desc": {
+                "pl": "Spiralne listki, owocowo-kwiatowy",
+                "en": "Spiral leaves, fruity and floral",
+                "ru": "Листья-спиральки, фруктово-цветочный"
+              },
+              "price": 22
+            },
+            {
+              "name": {
+                "pl": "Sencha",
+                "en": "Sencha",
+                "ru": "Сенча"
+              },
+              "desc": {
+                "pl": "Japońska klasyka: świeża, trawiasta",
+                "en": "Japanese classic: fresh and grassy",
+                "ru": "Японская классика: свежий, травянистый"
+              },
+              "price": 19
+            },
+            {
+              "name": {
+                "pl": "Gyokuro",
+                "en": "Gyokuro",
+                "ru": "Гёкуро"
+              },
+              "desc": {
+                "pl": "Cieniowany przed zbiorem, głęboki smak umami",
+                "en": "Shade-grown, deep umami",
+                "ru": "Выращен в тени, глубокий вкус умами"
+              },
+              "price": 34
+            },
+            {
+              "name": {
+                "pl": "Genmaicha",
+                "en": "Genmaicha",
+                "ru": "Генмайча"
+              },
+              "desc": {
+                "pl": "Zielona herbata z prażonym ryżem",
+                "en": "Green tea with roasted rice",
+                "ru": "Зелёный чай с обжаренным рисом"
+              },
+              "price": 17
+            },
+            {
+              "name": {
+                "pl": "Jaśminowe perły",
+                "en": "Jasmine Pearls",
+                "ru": "Жасминовые жемчужины"
+              },
+              "desc": {
+                "pl": "Ręcznie zwijane, aromatyzowane kwiatem jaśminu",
+                "en": "Hand-rolled, scented with jasmine blossom",
+                "ru": "Скручены вручную, ароматизированы цветами жасмина"
+              },
+              "price": 24
+            }
+          ]
+        },
+        {
+          "id": "tea-black",
+          "name": {
+            "pl": "Czarna",
+            "en": "Black",
+            "ru": "Чёрный"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Dian Hong",
+                "en": "Dian Hong",
+                "ru": "Дянь Хун"
+              },
+              "desc": {
+                "pl": "Złote pąki z Yunnanu, miód i słodki ziemniak",
+                "en": "Golden Yunnan buds, honey and sweet potato",
+                "ru": "Золотые почки Юньнани, мёд и батат"
+              },
+              "price": 20
+            },
+            {
+              "name": {
+                "pl": "Assam",
+                "en": "Assam",
+                "ru": "Ассам"
+              },
+              "desc": {
+                "pl": "Mocny i słodowy, dobry z mlekiem",
+                "en": "Strong and malty, great with milk",
+                "ru": "Крепкий, солодовый, хорош с молоком"
+              },
+              "price": 16
+            },
+            {
+              "name": {
+                "pl": "Darjeeling First Flush",
+                "en": "Darjeeling First Flush",
+                "ru": "Дарджилинг первого сбора"
+              },
+              "desc": {
+                "pl": "Wiosenny zbiór, muszkatołowe nuty",
+                "en": "Spring harvest, muscatel notes",
+                "ru": "Весенний сбор, мускатные ноты"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Keemun",
+                "en": "Keemun",
+                "ru": "Кимун"
+              },
+              "desc": {
+                "pl": "Gładki, z nutą kakao i dymu",
+                "en": "Smooth, with cocoa and a touch of smoke",
+                "ru": "Мягкий, с нотами какао и дымка"
+              },
+              "price": 20
+            },
+            {
+              "name": {
+                "pl": "Lapsang Souchong",
+                "en": "Lapsang Souchong",
+                "ru": "Лапсанг Сушонг"
+              },
+              "desc": {
+                "pl": "Wędzony nad sosną, dla odważnych",
+                "en": "Pine-smoked, for the brave",
+                "ru": "Копчёный на сосне, для смелых"
+              },
+              "price": 21
+            },
+            {
+              "name": {
+                "pl": "Earl Grey",
+                "en": "Earl Grey",
+                "ru": "Эрл Грей"
+              },
+              "desc": {
+                "pl": "Czarna herbata z olejkiem bergamotki",
+                "en": "Black tea with bergamot oil",
+                "ru": "Чёрный чай с маслом бергамота"
+              },
+              "price": 16
+            }
+          ]
+        },
+        {
+          "id": "tea-puer",
+          "name": {
+            "pl": "Pu-erh",
+            "en": "Pu-erh",
+            "ru": "Пуэр"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Shu Pu-erh",
+                "en": "Shu Pu-erh",
+                "ru": "Шу пуэр"
+              },
+              "desc": {
+                "pl": "Ciemny, ziemisty, z nutą suszonej śliwki",
+                "en": "Dark and earthy, with dried plum",
+                "ru": "Тёмный, землистый, с нотой чернослива"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Sheng Pu-erh 2015",
+                "en": "Sheng Pu-erh 2015",
+                "ru": "Шэн пуэр 2015"
+              },
+              "desc": {
+                "pl": "Dziesięcioletni prasowany placek, owocowy i świeży",
+                "en": "Ten-year-old pressed cake, fruity and bright",
+                "ru": "Прессованный блин 10-летней выдержки, фруктовый и яркий"
+              },
+              "price": 30
+            },
+            {
+              "name": {
+                "pl": "Pu-erh w mandarynce",
+                "en": "Mandarin Pu-erh",
+                "ru": "Пуэр в мандарине"
+              },
+              "desc": {
+                "pl": "Dojrzewał w skórce mandarynki",
+                "en": "Aged inside a mandarin peel",
+                "ru": "Выдержан в кожуре мандарина"
+              },
+              "price": 28
+            }
+          ]
+        },
+        {
+          "id": "tea-blended",
+          "name": {
+            "pl": "Mieszana",
+            "en": "Blended",
+            "ru": "Смесь"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Masala Chai",
+                "en": "Masala Chai",
+                "ru": "Масала чай"
+              },
+              "desc": {
+                "pl": "Gotowana na mleku z kardamonem, cynamonem i imbirem",
+                "en": "Simmered in milk with cardamom, cinnamon and ginger",
+                "ru": "Варится на молоке с кардамоном, корицей и имбирём"
+              },
+              "price": 19
+            },
+            {
+              "name": {
+                "pl": "Marokańska mięta",
+                "en": "Moroccan Mint",
+                "ru": "Марокканская мята"
+              },
+              "desc": {
+                "pl": "Gunpowder ze świeżą miętą, podawana z cukrem",
+                "en": "Gunpowder with fresh mint, served sweet",
+                "ru": "Ганпаудер со свежей мятой, подаётся с сахаром"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Rosyjska karawana",
+                "en": "Russian Caravan",
+                "ru": "Русский караван"
+              },
+              "desc": {
+                "pl": "Mieszanka czarnych herbat z lekkim dymem",
+                "en": "Black tea blend with a gentle smoke",
+                "ru": "Смесь чёрных чаёв с лёгким дымком"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Jaśmin i brzoskwinia",
+                "en": "Jasmine & Peach",
+                "ru": "Жасмин и персик"
+              },
+              "desc": {
+                "pl": "Zielona herbata, płatki jaśminu, kawałki brzoskwini",
+                "en": "Green tea, jasmine petals, peach pieces",
+                "ru": "Зелёный чай, лепестки жасмина, кусочки персика"
+              },
+              "price": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infusions",
+      "image": "img/view-tea.jpg",
+      "name": {
+        "pl": "Napary",
+        "en": "Infusions",
+        "ru": "Настои"
+      },
+      "subcategories": [
+        {
+          "id": "infusions-fruit",
+          "name": {
+            "pl": "Owocowe",
+            "en": "Fruit infusions",
+            "ru": "Фруктовые"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Piña Colada",
+                "en": "Piña Colada",
+                "ru": "Пина Колада"
+              },
+              "desc": {
+                "pl": "Kokos, ananas, jabłko, dzika róża, płatki róży",
+                "en": "Coconut, pineapple, apple, wild rose fruit, rose petal",
+                "ru": "Кокос, ананас, яблоко, шиповник, лепестки розы"
+              },
+              "price": 26
+            },
+            {
+              "name": {
+                "pl": "Fruit Garden",
+                "en": "Fruit Garden",
+                "ru": "Фруктовый сад"
+              },
+              "desc": {
+                "pl": "Truskawka, jeżyna, jabłko, czarna porzeczka",
+                "en": "Strawberry, blackberry, apple, blackcurrant",
+                "ru": "Клубника, ежевика, яблоко, чёрная смородина"
+              },
+              "price": 26
+            },
+            {
+              "name": {
+                "pl": "Wiśnia i migdał",
+                "en": "Cherry & Almond",
+                "ru": "Вишня и миндаль"
+              },
+              "desc": {
+                "pl": "Suszona wiśnia, płatki migdałów, hibiskus",
+                "en": "Dried cherry, almond flakes, hibiscus",
+                "ru": "Сушёная вишня, миндальные лепестки, гибискус"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Malinowy sad",
+                "en": "Raspberry Orchard",
+                "ru": "Малиновый сад"
+              },
+              "desc": {
+                "pl": "Malina, jabłko, liście jeżyny",
+                "en": "Raspberry, apple, blackberry leaves",
+                "ru": "Малина, яблоко, листья ежевики"
+              },
+              "price": 24
+            }
+          ]
+        },
+        {
+          "id": "infusions-rooibos",
+          "name": {
+            "pl": "Rooibos",
+            "en": "Rooibos",
+            "ru": "Ройбуш"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Rooibos naturalny",
+                "en": "Pure Rooibos",
+                "ru": "Ройбуш натуральный"
+              },
+              "desc": {
+                "pl": "Bez kofeiny, naturalnie słodki",
+                "en": "Caffeine-free, naturally sweet",
+                "ru": "Без кофеина, естественно сладкий"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Rooibos waniliowy",
+                "en": "Vanilla Rooibos",
+                "ru": "Ройбуш с ванилью"
+              },
+              "desc": {
+                "pl": "Z wanilią Bourbon",
+                "en": "With Bourbon vanilla",
+                "ru": "С ванилью Бурбон"
+              },
+              "price": 20
+            },
+            {
+              "name": {
+                "pl": "Rooibos pomarańcza i cynamon",
+                "en": "Orange & Cinnamon Rooibos",
+                "ru": "Ройбуш с апельсином и корицей"
+              },
+              "desc": {
+                "pl": "Zimowy, rozgrzewający",
+                "en": "Wintry and warming",
+                "ru": "Зимний, согревающий"
+              },
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "infusions-yerba",
+          "name": {
+            "pl": "Yerba Mate",
+            "en": "Yerba Mate",
+            "ru": "Мате"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Yerba Mate klasyczna",
+                "en": "Classic Yerba Mate",
+                "ru": "Йерба мате классическая"
+              },
+              "desc": {
+                "pl": "Podawana w tykwie z bombillą",
+                "en": "Served in a gourd with a bombilla",
+                "ru": "Подаётся в калебасе с бомбильей"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Yerba limonka i mięta",
+                "en": "Lime & Mint Yerba",
+                "ru": "Йерба с лаймом и мятой"
+              },
+              "desc": {
+                "pl": "Orzeźwiająca, mocno pobudza",
+                "en": "Refreshing, with a strong lift",
+                "ru": "Освежающая, хорошо бодрит"
+              },
+              "price": 20
+            },
+            {
+              "name": {
+                "pl": "Guayusa",
+                "en": "Guayusa",
+                "ru": "Гуаюса"
+              },
+              "desc": {
+                "pl": "Amazońska krewna yerby, łagodniejsza",
+                "en": "Amazonian cousin of yerba, milder",
+                "ru": "Амазонская родственница мате, мягче"
+              },
+              "price": 20
+            }
+          ]
+        },
+        {
+          "id": "infusions-special",
+          "name": {
+            "pl": "Specjalne",
+            "en": "Special infusions",
+            "ru": "Особые настои"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Imbir, cytryna i miód",
+                "en": "Ginger, Lemon & Honey",
+                "ru": "Имбирь, лимон и мёд"
+              },
+              "desc": {
+                "pl": "Świeży imbir, cytryna, miód lipowy",
+                "en": "Fresh ginger, lemon, linden honey",
+                "ru": "Свежий имбирь, лимон, липовый мёд"
+              },
+              "price": 19
+            },
+            {
+              "name": {
+                "pl": "Rokitnik",
+                "en": "Sea Buckthorn",
+                "ru": "Облепиха"
+              },
+              "desc": {
+                "pl": "Rokitnik z pomarańczą i rozmarynem",
+                "en": "Sea buckthorn with orange and rosemary",
+                "ru": "Облепиха с апельсином и розмарином"
+              },
+              "price": 22
+            },
+            {
+              "name": {
+                "pl": "Hibiskus",
+                "en": "Hibiscus",
+                "ru": "Каркаде"
+              },
+              "desc": {
+                "pl": "Kwaskowy, rubinowy, na ciepło lub z lodem",
+                "en": "Tart and ruby-red, hot or iced",
+                "ru": "Кисловатый, рубиновый, горячий или со льдом"
+              },
+              "price": 17
+            },
+            {
+              "name": {
+                "pl": "Rumianek i lawenda",
+                "en": "Chamomile & Lavender",
+                "ru": "Ромашка и лаванда"
+              },
+              "desc": {
+                "pl": "Na spokojny wieczór",
+                "en": "For a quiet evening",
+                "ru": "Для спокойного вечера"
+              },
+              "price": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "image": "img/dessert.jpg",
+      "name": {
+        "pl": "Desery",
+        "en": "Desserts",
+        "ru": "Десерты"
+      },
+      "subcategories": [
+        {
+          "id": "desserts-cakes",
+          "name": {
+            "pl": "Ciasta",
+            "en": "Cakes",
+            "ru": "Пироги и торты"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Sernik",
+                "en": "Cheesecake",
+                "ru": "Чизкейк"
+              },
+              "desc": {
+                "pl": "Klasyczny, na kruchym spodzie, z konfiturą wiśniową",
+                "en": "Classic, on a shortcrust base, with cherry preserve",
+                "ru": "Классический, на песочной основе, с вишнёвым конфитюром"
+              },
+              "price": 23
+            },
+            {
+              "name": {
+                "pl": "Gibanica",
+                "en": "Gibanica",
+                "ru": "Гибаница"
+              },
+              "desc": {
+                "pl": "Ciepłe ciasto z jabłkami, twarożkiem, makiem i orzechami",
+                "en": "Warm pastry with apples, cottage cheese, poppy seeds and nuts",
+                "ru": "Тёплый пирог с яблоками, творогом, маком и орехами"
+              },
+              "price": 24
+            },
+            {
+              "name": {
+                "pl": "Szarlotka",
+                "en": "Apple Pie",
+                "ru": "Шарлотка"
+              },
+              "desc": {
+                "pl": "Na ciepło, z gałką lodów waniliowych",
+                "en": "Served warm with a scoop of vanilla ice cream",
+                "ru": "Тёплая, с шариком ванильного мороженого"
+              },
+              "price": 21
+            },
+            {
+              "name": {
+                "pl": "Ciasto marchewkowe",
+                "en": "Carrot Cake",
+                "ru": "Морковный торт"
+              },
+              "desc": {
+                "pl": "Z orzechami włoskimi i kremem serowym",
+                "en": "With walnuts and cream cheese frosting",
+                "ru": "С грецкими орехами и сливочно-сырным кремом"
+              },
+              "price": 22
+            },
+            {
+              "name": {
+                "pl": "Tarta matcha",
+                "en": "Matcha Tart",
+                "ru": "Тарт с матчей"
+              },
+              "desc": {
+                "pl": "Krem z japońskiej matchy, biała czekolada",
+                "en": "Japanese matcha cream, white chocolate",
+                "ru": "Крем из японской матчи, белый шоколад"
+              },
+              "price": 25
+            },
+            {
+              "name": {
+                "pl": "Brownie",
+                "en": "Brownie",
+                "ru": "Брауни"
+              },
+              "desc": {
+                "pl": "Wilgotne, z gorzką czekoladą i solą morską",
+                "en": "Fudgy, dark chocolate and sea salt",
+                "ru": "Влажный, с горьким шоколадом и морской солью"
+              },
+              "price": 19
+            }
+          ]
+        },
+        {
+          "id": "desserts-icecream",
+          "name": {
+            "pl": "Lodowe",
+            "en": "Ice-cream desserts",
+            "ru": "Десерты с мороженым"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Lody waniliowe z karmelem",
+                "en": "Vanilla Ice Cream & Caramel",
+                "ru": "Ванильное мороженое с карамелью"
+              },
+              "desc": {
+                "pl": "Dwie gałki, słony karmel",
+                "en": "Two scoops, salted caramel",
+                "ru": "Два шарика, солёная карамель"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Lody matcha",
+                "en": "Matcha Ice Cream",
+                "ru": "Мороженое с матчей"
+              },
+              "desc": {
+                "pl": "Dwie gałki, prażony sezam",
+                "en": "Two scoops, toasted sesame",
+                "ru": "Два шарика, обжаренный кунжут"
+              },
+              "price": 20
+            },
+            {
+              "name": {
+                "pl": "Sorbet mango i marakuja",
+                "en": "Mango & Passion Fruit Sorbet",
+                "ru": "Сорбет манго и маракуйя"
+              },
+              "desc": {
+                "pl": "Bez mleka, wegański",
+                "en": "Dairy-free, vegan",
+                "ru": "Без молока, веганский"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Affogato z herbatą",
+                "en": "Tea Affogato",
+                "ru": "Аффогато с чаем"
+              },
+              "desc": {
+                "pl": "Lody waniliowe zalane mocną hojichą",
+                "en": "Vanilla ice cream drowned in strong hojicha",
+                "ru": "Ванильное мороженое, залитое крепкой ходзичей"
+              },
+              "price": 22
+            }
+          ]
+        },
+        {
+          "id": "desserts-sweets",
+          "name": {
+            "pl": "Słodkości do herbaty",
+            "en": "Tea Sweets",
+            "ru": "Сладости к чаю"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Mochi (3 szt.)",
+                "en": "Mochi (3 pcs)",
+                "ru": "Моти (3 шт.)"
+              },
+              "desc": {
+                "pl": "Matcha, sezam, czerwona fasola",
+                "en": "Matcha, sesame, red bean",
+                "ru": "Матча, кунжут, красная фасоль"
+              },
+              "price": 21
+            },
+            {
+              "name": {
+                "pl": "Baklawa",
+                "en": "Baklava",
+                "ru": "Пахлава"
+              },
+              "desc": {
+                "pl": "Z pistacjami i miodem",
+                "en": "With pistachios and honey",
+                "ru": "С фисташками и мёдом"
+              },
+              "price": 16
+            },
+            {
+              "name": {
+                "pl": "Makaroniki (3 szt.)",
+                "en": "Macarons (3 pcs)",
+                "ru": "Макаруны (3 шт.)"
+              },
+              "desc": {
+                "pl": "Lawenda, malina, earl grey",
+                "en": "Lavender, raspberry, earl grey",
+                "ru": "Лаванда, малина, эрл грей"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Chałwa sezamowa",
+                "en": "Sesame Halva",
+                "ru": "Кунжутная халва"
+              },
+              "desc": {
+                "pl": "Domowa, z kakao",
+                "en": "Homemade, with cocoa",
+                "ru": "Домашняя, с какао"
+              },
+              "price": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "image": "img/pouring-tea-2.jpg",
+      "name": {
+        "pl": "Dodatki",
+        "en": "Extras",
+        "ru": "Дополнения"
+      },
+      "subcategories": [
+        {
+          "id": "extras-addons",
+          "name": {
+            "pl": "Do herbaty",
+            "en": "With your tea",
+            "ru": "К чаю"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Miód lipowy",
+                "en": "Linden honey",
+                "ru": "Липовый мёд"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 5
+            },
+            {
+              "name": {
+                "pl": "Cytryna",
+                "en": "Lemon",
+                "ru": "Лимон"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 2
+            },
+            {
+              "name": {
+                "pl": "Mleko roślinne",
+                "en": "Plant milk",
+                "ru": "Растительное молоко"
+              },
+              "desc": {
+                "pl": "Owsiane, migdałowe lub kokosowe",
+                "en": "Oat, almond or coconut",
+                "ru": "Овсяное, миндальное или кокосовое"
+              },
+              "price": 4
+            },
+            {
+              "name": {
+                "pl": "Konfitura z pigwy",
+                "en": "Quince preserve",
+                "ru": "Варенье из айвы"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 6
+            },
+            {
+              "name": {
+                "pl": "Dolewka wrzątku",
+                "en": "Hot water refill",
+                "ru": "Доливка кипятка"
+              },
+              "desc": {
+                "pl": "Bez limitu, do każdego czajniczka",
+                "en": "Unlimited, with every teapot",
+                "ru": "Без ограничений, к каждому чайнику"
+              },
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": "extras-snacks",
+          "name": {
+            "pl": "Przekąski",
+            "en": "Snacks",
+            "ru": "Закуски"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Tost z serem i pomidorem",
+                "en": "Cheese & Tomato Toast",
+                "ru": "Тост с сыром и томатом"
+              },
+              "desc": {
+                "pl": "Na zakwasie, z bazylią",
+                "en": "On sourdough, with basil",
+                "ru": "На закваске, с базиликом"
+              },
+              "price": 18
+            },
+            {
+              "name": {
+                "pl": "Hummus z pitą",
+                "en": "Hummus & Pita",
+                "ru": "Хумус с питой"
+              },
+              "desc": {
+                "pl": "Ciecierzyca, tahini, oliwa, papryka wędzona",
+                "en": "Chickpeas, tahini, olive oil, smoked paprika",
+                "ru": "Нут, тахини, оливковое масло, копчёная паприка"
+              },
+              "price": 22
+            },
+            {
+              "name": {
+                "pl": "Orzechy i suszone owoce",
+                "en": "Nuts & Dried Fruit",
+                "ru": "Орехи и сухофрукты"
+              },
+              "desc": {
+                "pl": "Mały talerzyk do herbaty",
+                "en": "A small plate to go with tea",
+                "ru": "Небольшая тарелка к чаю"
+              },
+              "price": 14
+            }
+          ]
+        },
+        {
+          "id": "extras-weight",
+          "name": {
+            "pl": "Herbata na wagę (50 g)",
+            "en": "Loose tea by weight (50 g)",
+            "ru": "Чай на развес (50 г)"
+          },
+          "items": [
+            {
+              "name": {
+                "pl": "Longjing",
+                "en": "Longjing",
+                "ru": "Лунцзин"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 45
+            },
+            {
+              "name": {
+                "pl": "Tie Guan Yin",
+                "en": "Tie Guan Yin",
+                "ru": "Те Гуань Инь"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 42
+            },
+            {
+              "name": {
+                "pl": "Dian Hong",
+                "en": "Dian Hong",
+                "ru": "Дянь Хун"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 36
+            },
+            {
+              "name": {
+                "pl": "Shu Pu-erh",
+                "en": "Shu Pu-erh",
+                "ru": "Шу пуэр"
+              },
+              "desc": {
+                "pl": "",
+                "en": "",
+                "ru": ""
+              },
+              "price": 40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
