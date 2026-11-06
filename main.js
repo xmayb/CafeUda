@@ -113,7 +113,44 @@ function openCategoryModal(categoryId) {
     `).join('')}
   `;
 
-  document.getElementById('category-modal').showModal();
+  const modal = document.getElementById('category-modal');
+  modal.showModal();
+  modal.scrollTop = 0; // каждая категория открывается с начала списка
+  lockPageScroll();
+}
+
+// === Блокировка прокрутки страницы под открытой модалкой ===
+// overflow:hidden на body не спасает в iOS Safari — страница всё равно тянется пальцем.
+// Надёжный способ: зафиксировать body на месте (position:fixed) и запомнить, где был скролл,
+// а при закрытии вернуть всё как было и прокрутить обратно в ту же точку.
+let lockedScrollY = null;
+
+function lockPageScroll() {
+  if (lockedScrollY !== null) return;
+  lockedScrollY = window.scrollY;
+  const scrollbar = window.innerWidth - document.documentElement.clientWidth; // чтобы страница не "прыгала" на ПК, когда исчезает полоса прокрутки
+  Object.assign(document.body.style, {
+    position: 'fixed', top: `-${lockedScrollY}px`, left: '0', right: '0',
+    width: '100%', paddingRight: scrollbar ? `${scrollbar}px` : ''
+  });
+}
+
+function unlockPageScroll() {
+  if (lockedScrollY === null) return;
+  const y = lockedScrollY;
+  lockedScrollY = null;
+  Object.assign(document.body.style, { position: '', top: '', left: '', right: '', width: '', paddingRight: '' });
+  document.documentElement.style.scrollBehavior = 'auto'; // иначе html{scroll-behavior:smooth} будет "доезжать" до места
+  window.scrollTo(0, y);
+  document.documentElement.style.scrollBehavior = '';
+}
+
+{
+  const modal = document.getElementById('category-modal');
+  // 'close' срабатывает при любом закрытии: крестик, Esc, кнопка «назад» на Android
+  modal.addEventListener('close', unlockPageScroll);
+  // Тап по затемнённому фону вокруг окна тоже закрывает его
+  modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 }
 
 // === Мобильное меню ===
@@ -129,6 +166,7 @@ const nav = document.getElementById('site-nav');
 const steepBar = document.getElementById('steep-bar');
 
 function onScroll() {
+  if (lockedScrollY !== null) return; // пока страница заблокирована, scrollY = 0 — не сбрасываем полосу и шапку
   if (window.scrollY > 80) {
     nav.classList.add('bg-paper/90', 'backdrop-blur-sm', 'shadow-sm');
   } else {

@@ -144,6 +144,11 @@
       transition: opacity 0.25s ease, transform 0.25s ease, overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
     }
 
+    /* Скролл внутри окна меню не "перетекает" на страницу, когда список докручен до конца */
+    #category-modal {
+      overscroll-behavior: contain;
+    }
+
     dialog[open] {
       opacity: 1;
       transform: scale(1);
